@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class StudentGradeTracker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int totalMarks = 0;
+        int numberOfSubjects = 0;
+
+        System.out.print("Enter the number of subjects: ");
+        numberOfSubjects = scanner.nextInt();
+
+        int[] subjectMarks = new int[numberOfSubjects];
+        for (int i = 0; i < numberOfSubjects; i++) {
+            System.out.print("Enter marks for subject " + (i + 1) + ": ");
+            subjectMarks[i] = scanner.nextInt();
+            totalMarks += subjectMarks[i];
+        }
+
+        double averageGrade = (double) totalMarks / numberOfSubjects;
+        String letterGrade = "";
+        if (averageGrade >= 80) {
+            letterGrade = "A";
+        } else if (averageGrade >= 60) {
+            letterGrade = "B";
+        } else if (averageGrade >= 40) {
+            letterGrade = "C";
+        } else {
+            letterGrade = "D";
+        }
+
+        System.out.println("The average grade is: " + averageGrade);
+        System.out.println("The letter grade is: " + letterGrade);
+    }
+}
